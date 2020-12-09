@@ -13,13 +13,11 @@ export default class HelloWorldApp extends Component {
   componentDidMount(){
     this.getMovieList();
     console.warn("------movies : ", this.state.movies);
-    
   }
 
   async getMovieList () {
     let resp = await fetch('https://reactnative.dev/movies.json');
     let rspData = await resp.json();
-    console.warn("------movies : ", rspData.movies.length);
     this.setState({
       movies:rspData.movies
     });
